@@ -31,6 +31,46 @@ GET https://wikipedia.org
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Requests
+
+### Add request headers
+
+```
+GET https://postman-echo.com/get
+x-api-key: test
+x-version: 1.0
+```
+
+### Add request body
+
+```
+POST https://postman-echo.com/post
+Content-Type: application/json
+
+{
+  "name": "louis77"
+}
+```
+
+### Separate requests
+
+Separate multiple request in the same file with `###` on a separate line.
+Place the cursor anywhere inside a requests when running it.
+
+```
+GET https://postman-echo.com/get
+x-api-key: test
+x-version: 1.0
+
+###
+
+POST https://postman-echo.com/post
+Content-Type: application/json
+
+{
+  "name": "louis77"
+}
+```
 
 ## Limitations
 
@@ -41,14 +81,13 @@ GET https://wikipedia.org
 
 ## Roadmap
 
-HTTP Client is still very simple and doesn't provide support for HTTP headers or body (yet).
 Let me know if you find the extension useful and what features you want to see.
 
 - [X] Basic HTTP requests 
 - [X] Show latency in output
 - [X] Show HTTP response headers in output
-- [ ] Add support to provide HTTP headers
-- [ ] Add support to provide HTTP body
+- [X] Add support to provide HTTP headers
+- [X Add support to provide HTTP body
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

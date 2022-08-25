@@ -1,12 +1,27 @@
-GET http://localhost:8080
 
-POST http://localhost:8080
+GET https://postman-echo.com/get
+x-api-key: test
 
+###
+
+POST https://postman-echo.com/post
+Content-Type: application/json
+
+{
+	"name": "louis77"
+}
+
+###
 GET https://wikipedia.org
 
-HEAD https://wikipedia.org
+###
+
+HEAD https://wikipedia.org/
+Content-Type: application/json
+
+body
+
+###
 
 GET http://worldtimeapi.org/api/timezone/Europe/Zurich
 
-# doesn't work
-GET https://raw.githubusercontent.com/louis77/nova-http-client/main/extension.png
