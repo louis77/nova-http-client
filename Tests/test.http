@@ -1,0 +1,7 @@
+GET http://localhost:8080
+
+POST http://localhost:8080
+
+GET https://wikipedia.org
+
+GET https://api.openbooking.ch/ping

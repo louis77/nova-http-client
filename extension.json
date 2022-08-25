@@ -1,0 +1,31 @@
+{
+    "identifier": "louis77.http-client",
+    "name": "HTTP Client",
+    "organization": "Louis Brauer <louis@brauer.family>",
+    "description": "Make HTTP calls from Nova",
+    "version": "1.0",
+    "categories": ["languages", "commands"],
+    "main": "main.js",
+    "license": "GPL-3.0-or-later",
+    "repository": "https://github.com/louis77/nova-http-client",
+    "bugs": "https://github.com/louis77/nova-http-client/issues",
+    "activationEvents": [
+        "onLanguage:http"
+    ],
+    "entitlements": {
+        "requests": true
+    },
+    "commands": {
+        "editor": [
+            {
+                "title": "Run HTTP",
+                "command": "runHTTP",
+                "shortcut": "f5",
+                "when": "editorHasFocus",
+                "filters": {
+                    "syntaxes": ["http"]
+                }
+            }
+        ]
+    }
+}
