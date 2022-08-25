@@ -46,9 +46,9 @@ Let me know if you find the extension useful and what features you want to see.
 
 - [X] Basic HTTP requests 
 - [X] Show latency in output
+- [X] Show HTTP response headers in output
 - [ ] Add support to provide HTTP headers
 - [ ] Add support to provide HTTP body
-- [ ] Add HTTP response headers in output
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

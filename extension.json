@@ -3,7 +3,7 @@
     "name": "HTTP Client",
     "organization": "Louis Brauer <louis@brauer.family>",
     "description": "Make HTTP calls from Nova",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "categories": ["languages", "commands"],
     "main": "main.js",
     "license": "GPL-3.0-or-later",

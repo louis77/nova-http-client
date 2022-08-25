@@ -2,7 +2,7 @@ GET http://localhost:8080
 
 POST http://localhost:8080
 
-GET hxttps://wikipedia.org
+GET https://wikipedia.org
 
 HEAD https://wikipedia.org
 

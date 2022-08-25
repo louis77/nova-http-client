@@ -13,6 +13,13 @@ const selectSyntax = (contentType => {
   return 'txt';
 })
 
+const compileHeaders = (headers => {
+  const result = [];
+  headers.forEach((entry, _) => result.push(`${entry[0]}: ${entry[1]}`));
+  result.sort();
+  return result.join('\n');
+});
+
 const runHTTP = (editor => {
   console.log('runHTTP', editor, editor.document)
   if (!TextEditor.isTextEditor(editor)) return;
@@ -55,10 +62,10 @@ const runHTTP = (editor => {
       const latency = endTime - startTime;
 
       const headers = response.headers;
-      resultHeader = `${response.status} ${response.statusText} (latency: ${latency}ms)`;
+      resultHeader = `${response.status} ${response.statusText} (latency: ${latency}ms)\n`;
       type = headers.get('Content-Type');
-
-      if (type) resultHeader += `\nContent-Type: ${type}`;
+    
+      if (headers) resultHeader += compileHeaders(headers.entries);
 
       return response.text()
     })
