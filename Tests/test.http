@@ -2,6 +2,11 @@ GET http://localhost:8080
 
 POST http://localhost:8080
 
-GET https://wikipedia.org
+GET hxttps://wikipedia.org
 
-GET https://api.openbooking.ch/ping
+HEAD https://wikipedia.org
+
+GET http://worldtimeapi.org/api/timezone/Europe/Zurich
+
+# doesn't work
+GET https://raw.githubusercontent.com/louis77/nova-http-client/main/extension.png

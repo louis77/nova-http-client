@@ -44,16 +44,21 @@ const runHTTP = (editor => {
   let resultBody = "";
   let type = null;
 
-
+  const startTime = new Date().getTime();
+  
   fetch(url, {
     method: verb,
   })
     .then((response) => {
       console.log("request done")
+      const endTime = new Date().getTime();
+      const latency = endTime - startTime;
 
       const headers = response.headers;
-      resultHeader = `${response.status} ${response.statusText}`;
+      resultHeader = `${response.status} ${response.statusText} (latency: ${latency}ms)`;
       type = headers.get('Content-Type');
+
+      if (type) resultHeader += `\nContent-Type: ${type}`;
 
       return response.text()
     })

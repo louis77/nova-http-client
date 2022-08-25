@@ -15,6 +15,8 @@
 
 ## Getting Started
 
+1. Install the extension from the [Nova extensions library](https://extensions.panic.com/extensions/louis77/louis77.http-client/).
+
 1. Create a file with "http" extension
 
 2. Write a HTTP verb and URL in a line:
@@ -27,15 +29,27 @@ GET https://wikipedia.org
 
 4. HTTP Client will open a new editor with the result of the request (HTTP & body). It detects if the response is HTML or JSON and selects the appropriate syntax in Nova.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Limitations
+
+- Works only with text-based responses
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## Roadmap
 
 HTTP Client is still very simple and doesn't provide support for HTTP headers or body (yet).
 Let me know if you find the extension useful and what features you want to see.
 
+- [X] Basic HTTP requests 
+- [X] Show latency in output
 - [ ] Add support to provide HTTP headers
 - [ ] Add support to provide HTTP body
 - [ ] Add HTTP response headers in output
-- [ ] Add latency in output
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
