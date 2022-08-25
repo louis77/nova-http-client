@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/louis77/nova-http-client">
-	<img src="extension.png" alt="Logo" width="80" height="80">
+	<img src="https://raw.githubusercontent.com/louis77/nova-http-client/main/extension.png" alt="Logo" width="80" height="80">
   </a>
 </div>
 
@@ -35,6 +35,8 @@ GET https://wikipedia.org
 
 ### Add request headers
 
+Place HTTP header directly below Verb/URL:
+
 ```
 GET https://postman-echo.com/get
 x-api-key: test
@@ -42,6 +44,8 @@ x-version: 1.0
 ```
 
 ### Add request body
+
+Separate the body with an empty line after URL/headers:
 
 ```
 POST https://postman-echo.com/post
@@ -55,7 +59,7 @@ Content-Type: application/json
 ### Separate requests
 
 Separate multiple request in the same file with `###` on a separate line.
-Place the cursor anywhere inside a requests when running it.
+Place the cursor anywhere inside a request when running it.
 
 ```
 GET https://postman-echo.com/get
@@ -87,7 +91,7 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Show latency in output
 - [X] Show HTTP response headers in output
 - [X] Add support to provide HTTP headers
-- [X Add support to provide HTTP body
+- [X] Add support to provide HTTP body
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
