@@ -17,22 +17,36 @@
     </comments>
     
     <scopes>
-        <scope name="http.request">
+        <scope name="http.request.head">
             <starts-with>
                 <expression>\b(GET|POST|PUT|PATCH|DELETE|HEAD)\s(.+)</expression>
                 <capture number="1" name="http.identifier.method" />
                 <capture number="2" name="http.string" />
             </starts-with>
+            
             <ends-with>
-                <expression>\#{3}</expression>
+                <expression>^\s*\#{3}.*$</expression>
                 <capture number="0" name="http.markup.line" />
             </ends-with>
+            
+            <subscopes anchored="true" skip-whitespace="false">
+                <scope name="http.request.header" repeat="true" optional="true">
+                    <expression>^(\S+)\s*:\s*(\S+)$</expression>
+                    <capture number="1" name="http.string.key" />
+                    <capture number="2" name="http.value" />
+                </scope>
+                
+                <scope name="http.request.bodysep" repeat="false" optional="true">
+                    <expression>^\s*$</expression>
+                    <capture number="0" name="http.body.value" />
+                </scope>
+
+                <scope name="http.request.body" repeat="true" optional="true">
+                    <expression>(.*)</expression>
+                    <capture number="0" name="http.markup.code" />
+                </scope>
+            </subscopes>
         </scope>
-        <subscopes>
-            <scope name="http.header">
-                <expression>[a-zA-Z]*</expression>
-                <capture number="0" name="http.string" />
-            </scope>
-        </subscopes>
+
     </scopes>
 </syntax>
