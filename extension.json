@@ -22,6 +22,21 @@
         "requests": true,
         "filesystem": "readonly"
     },
+    "config": [
+        {
+            "key": "http.followredirect",
+            "type": "boolean",
+            "title": "Follow HTTP 3xx responses as redirects",
+            "default": true
+        },
+        {
+            "key": "http.timeoutinmilliseconds",
+            "type": "number",
+            "title": "Timeout",
+            "description": "Timeout in milliseconds. 0 for infinity",
+            "default": 0
+        }
+    ],
     "commands": {
         "editor": [
             {

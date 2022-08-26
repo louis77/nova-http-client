@@ -1,6 +1,9 @@
 ## Version 1.5.0
 
 - Add Clips for different request types and separator
+- Add Settings for
+	- Follow Redirects
+	- Request timeout in milliseconds
 
 ## Version 1.4.0
 

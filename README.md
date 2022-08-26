@@ -31,6 +31,7 @@ GET https://wikipedia.org
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ## Requests
 
 ### Add request headers
@@ -106,6 +107,16 @@ The cursor must always be anywhere inside an HTTP request.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Settings
+
+This extension provides a few settings to customize its behaviour:
+
+- Follow Redirects (3xx responses) (default: true)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## Limitations
 
 - Non text-based responses (i.e. binary, images) are not supported yet
@@ -125,6 +136,8 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Accept local filenames as body payload
 - [X] Support for XML responses
 - [X] Clips for basic requests
+- [X] Setting to define a timeout
+- [ ] Option to include request (w/o body) in response output
 - [ ] Variables
 - [ ] Auto-completion for Content-Type
 - [ ] Request history in a sidebar
