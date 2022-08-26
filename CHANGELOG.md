@@ -17,3 +17,8 @@ Show response headers in output.
 - Add support for request headers
 - Add support for request body
 - Separate multiple requests with a `###` on a separate line
+
+## Version 1.4.0
+
+- Add CMD-R shortcut to run a request
+- Add funding link 

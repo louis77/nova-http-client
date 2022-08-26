@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="http">
+    <meta>
+        <name>HTTP</name>
+        <type>structured</type>
+        <preferred-file-extension>http</preferred-file-extension>
+    </meta>
+    
+    <detectors>
+        <extension priority="1.0">http,rest</extension>
+    </detectors>
+    
+    <comments>
+        <single>
+            <expression>#</expression>
+        </single>
+    </comments>
+    
+    <scopes>
+        <scope name="http.request">
+            <starts-with>
+                <expression>\b(GET|POST|PUT|PATCH|DELETE|HEAD)\s(.+)</expression>
+                <capture number="1" name="http.identifier.method" />
+                <capture number="2" name="http.string" />
+            </starts-with>
+            <ends-with>
+                <expression>\#{3}</expression>
+                <capture number="0" name="http.markup.line" />
+            </ends-with>
+        </scope>
+        <subscopes>
+            <scope name="http.header">
+                <expression>[a-zA-Z]*</expression>
+                <capture number="0" name="http.string" />
+            </scope>
+        </subscopes>
+    </scopes>
+</syntax>

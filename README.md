@@ -7,7 +7,7 @@
   </a>
 </div>
 
-# nova-http-client
+# HTTP Client extension for Nova
 
 **HTTP Client** is an extension for the [Nova editor](https://nova.app) and provides a **Run HTTP** editor command to make HTTP calls from a *.http file.
 
@@ -25,7 +25,7 @@
 GET https://wikipedia.org
 ```
 
-3. Put the cursor on the line, right-click and click on the "Run HTTP" command (or Editor > Run HTTP).
+3. Put the cursor on the line and press CMD-R or right-click and select the "Run HTTP" command
 
 4. HTTP Client will open a new editor with the result of the request (HTTP & body). It detects if the response is HTML or JSON and selects the appropriate syntax in Nova.
 
@@ -56,7 +56,7 @@ Content-Type: application/json
 }
 ```
 
-### Separate requests
+### Multiple requests
 
 Separate multiple request in the same file with `###` on a separate line.
 Place the cursor anywhere inside a request when running it.
@@ -76,9 +76,24 @@ Content-Type: application/json
 }
 ```
 
+## Execute HTTP requests
+
+You have several options to execute the current HTTP request:
+
+1. Right-click and select "Run HTTP"
+2. Press CMD-R
+3. Bring up the command palette (CMD-SHIFT-P) and search for "Run HTTP"
+4. Click on the "Run HTTP Task" run button
+5. Use the menu "Editor > Run HTTP"
+
+The cursor must always be anywhere inside an HTTP request.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## Limitations
 
-- Works only with text-based responses
+- Non text-based responses (i.e. binary, images) are not supported yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,7 +107,13 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Show HTTP response headers in output
 - [X] Add support to provide HTTP headers
 - [X] Add support to provide HTTP body
-
+- [ ] Accept local filenames as body payload
+- [ ] Variables
+- [ ] Auto-completion for Content-Type
+- [ ] Provide snippets for basic requests
+- [ ] Request history in a sidebar
+- [ ] Support for XML responses
+- [ ] Elaborate on RFC 2616
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,6 +134,11 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Donate
+
+If you like this extension and want it to get better over time, please consider showing your appreciation by [donating a small tip](https://www.paypal.com/donate/?hosted_button_id=T5QY5WE7AV2T6). Thank you!
+
+
 ## License
 
 Distributed under the GPL-3-or-later. See `LICENSE.txt` for more information.
@@ -120,7 +146,6 @@ Distributed under the GPL-3-or-later. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- CONTACT -->
 ## Contact
 
 Louis Brauer - [@BrauerLouis1](https://twitter.com/BrauerLouis1) - louis@brauer.family

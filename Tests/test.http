@@ -12,6 +12,7 @@ Content-Type: application/json
 }
 
 ###
+
 GET https://wikipedia.org
 
 ###
