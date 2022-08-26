@@ -8,6 +8,7 @@ const selectSyntax = (contentType => {
   if (!contentType) return 'txt';
   if (contentType.startsWith('application/json')) return 'json';
   if (contentType.startsWith('text/html')) return 'html';
+  if (contentType.includes('xml')) return 'xml';
   return 'txt';
 })
 
@@ -22,7 +23,6 @@ const compileHeaders = (headers => {
 const splitSegment = (text => {
   let verb = null;
   let url = null;
-  let body = null;
   
   let lines = text.split('\n');
   if (lines.length < 1) return;
@@ -59,8 +59,7 @@ const splitSegment = (text => {
     .map(e => e.split(':').map(f => f.trim()))
     .reduce((a, v) => ({...a, [v[0]]: v[1]}), {});
   
-  // body
-  body = lines.join('\n');
+  const body = lines.join('\n');
   
   return {
     verb,
@@ -68,6 +67,28 @@ const splitSegment = (text => {
     headers,
     body,
   }
+})
+
+// checks if the body consists of one line starting with < filename
+// loads that file and replaces body
+// otherwise just returns the body
+const parseBody = (body => {
+  // it looks like nova.fs is always at the root of the
+  // file system  
+  const filename = body.match(/^<\s*(\S+)$/);
+  console.log("filename was", filename);
+  // if filename is array of 
+  // 0 = full match
+  // 1 = the filepath
+  if (filename && filename.length === 2) {
+    // we got a filename
+    console.log("trying to open file ", filename[1]);
+    const file = nova.fs.open(filename[1], 'rb');
+    const buffer = file.read();
+    file.close()
+    return buffer;
+  }
+  return body
 })
 
 const runHTTP = (editor => {
@@ -140,10 +161,21 @@ const runHTTP = (editor => {
     return;
   }
   
+  let parsedBody;
+
+  try {
+    // parseBody can fail when file not found
+    parsedBody = (verb !== 'GET' && verb !== 'HEAD' ? parseBody(body) : null);
+  } catch(ex) {
+    console.log(ex)
+    nova.workspace.showErrorMessage(ex.message);
+    return;
+  }
+  
   fetch(url, {
     method: verb,
     headers: headers,
-    body: (verb !== 'GET' && verb !== 'HEAD' ? body : null),
+    body: parsedBody,
   })
     .then((response) => {
       console.log("request done")

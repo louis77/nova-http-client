@@ -27,7 +27,7 @@ GET https://wikipedia.org
 
 3. Put the cursor on the line and press CMD-R or right-click and select the "Run HTTP" command
 
-4. HTTP Client will open a new editor with the result of the request (HTTP & body). It detects if the response is HTML or JSON and selects the appropriate syntax in Nova.
+4. HTTP Client will open a new editor with the result of the request (HTTP & body). It detects if the response is HTML, JSON or XML and selects the appropriate syntax in Nova.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -55,6 +55,17 @@ Content-Type: application/json
   "name": "louis77"
 }
 ```
+
+You can also specify file path to use as a body, which starts with < :
+
+```
+POST https://postman-echo.com/post
+Content-Type: application/json
+
+< /home/joe/payload.json
+
+```
+
 
 ### Multiple requests
 
@@ -107,13 +118,14 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Show HTTP response headers in output
 - [X] Add support to provide HTTP headers
 - [X] Add support to provide HTTP body
-- [ ] Accept local filenames as body payload
+- [X] Accept local filenames as body payload
+- [X] Support for XML responses
 - [ ] Variables
 - [ ] Auto-completion for Content-Type
 - [ ] Provide snippets for basic requests
 - [ ] Request history in a sidebar
-- [ ] Support for XML responses
 - [ ] Elaborate on RFC 2616
+- [ ] Allow text on separator line (i.e. ### my request)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

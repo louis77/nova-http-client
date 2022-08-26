@@ -20,5 +20,8 @@ Show response headers in output.
 
 ## Version 1.4.0
 
+- Add support to read local files as request body (< filename)
+- Select proper syntax for XML responses
+- Improved syntax highlighting
 - Add CMD-R shortcut to run a request
 - Add funding link 

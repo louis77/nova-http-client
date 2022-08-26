@@ -14,7 +14,8 @@
         "onLanguage:http"
     ],
     "entitlements": {
-        "requests": true
+        "requests": true,
+        "filesystem": "readonly"
     },
     "commands": {
         "editor": [
