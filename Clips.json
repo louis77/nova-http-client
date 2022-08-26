@@ -1,0 +1,156 @@
+{
+    "clips": [
+		{
+			"name": "Separator",
+			"content": "###\n\n",
+			"trigger": "sep",
+			"syntax": "http"
+		},
+        {
+            "name": "GET Requests",
+            "children": [
+                {
+                    "content": "GET http${:://localhost:8080}",
+                    "name": "GET Request",
+                    "trigger": "GET",
+					"syntax": "http"
+                },
+                {
+                    "content": "GET http${:://localhost:8080}\n${:header}: ${:value}",
+                    "name": "GET Request with headers",
+                    "trigger": "GET",
+					"syntax": "http"
+                },
+                
+            ]
+        },
+		
+		{
+			"name": "HEAD Requests",
+			"children": [
+				{
+					"content": "HEAD http${:://localhost:8080}",
+					"name": "HEAD Request",
+					"trigger": "HEAD",
+					"syntax": "http"
+				},
+				{
+					"content": "HEAD http${:://localhost:8080}\n${:header}: ${:value}",
+					"name": "HEAD Request with headers",
+					"trigger": "HEAD",
+					"syntax": "http"
+				},
+				
+			]
+		},
+		
+		{
+			"name": "DELETE Requests",
+			"children": [
+				{
+					"content": "DELETE http${:://localhost:8080}",
+					"name": "DELETE Request",
+					"trigger": "DELETE",
+					"syntax": "http"
+				},
+				{
+					"content": "DELETE http${:://localhost:8080}\n${:header}: ${:value}",
+					"name": "DELETE Request with headers",
+					"trigger": "DELETE",
+					"syntax": "http"
+				},
+				
+			]
+		},
+		
+		{
+			"name": "POST Requests",
+			"children": [
+				{
+					"content": "POST http${:://localhost:8080}",
+					"name": "POST Request",
+					"trigger": "POST",
+					"syntax": "http"
+				},
+				{
+					"content": "POST http${:://localhost:8080}\n${:header}: ${:value}",
+					"name": "POST Request with headers",
+					"trigger": "POST",
+					"syntax": "http"
+				},
+				{
+					"content": "POST http${:://localhost:8080}\nContent-Type: application/json\n\n${:json-body}",
+					"name": "POST Request with JSON body",
+					"trigger": "POST",
+					"syntax": "http"
+				},
+				{
+					"content": "POST http${:://localhost:8080}\nContent-Type: application/json\n\n< ${:filename}",
+					"name": "POST Request with JSON file",
+					"trigger": "POST",
+					"syntax": "http"
+				}
+			]
+		},
+		
+		{
+			"name": "PUT Requests",
+			"children": [
+				{
+					"content": "PUT http${:://localhost:8080}",
+					"name": "PUT Request",
+					"trigger": "PUT",
+					"syntax": "http"
+				},
+				{
+					"content": "PUT http${:://localhost:8080}\n${:header}: ${:value}",
+					"name": "PUT Request with headers",
+					"trigger": "PUT",
+					"syntax": "http"
+				},
+				{
+					"content": "PUT http${:://localhost:8080}\nContent-Type: application/json\n\n${:json-body}",
+					"name": "PUT Request with JSON body",
+					"trigger": "PUT",
+					"syntax": "http"
+				},
+				{
+					"content": "PUT http${:://localhost:8080}\nContent-Type: application/json\n\n< ${:filename}",
+					"name": "PUT Request with JSON file",
+					"trigger": "PUT",
+					"syntax": "http"
+				}
+			]
+		},
+		
+		{
+			"name": "PATCH Requests",
+			"children": [
+				{
+					"content": "PATCH http${:://localhost:8080}",
+					"name": "PATCH Request",
+					"trigger": "PATCH",
+					"syntax": "http"
+				},
+				{
+					"content": "PATCH http${:://localhost:8080}\n${:header}: ${:value}",
+					"name": "PATCH Request with headers",
+					"trigger": "PATCH",
+					"syntax": "http"
+				},
+				{
+					"content": "PATCH http${:://localhost:8080}\nContent-Type: application/json\n\n${:json-body}",
+					"name": "PATCH Request with JSON body",
+					"trigger": "PATCH",
+					"syntax": "http"
+				},
+				{
+					"content": "PATCH http${:://localhost:8080}\nContent-Type: application/json\n\n< ${:filename}",
+					"name": "PATCH Request with JSON file",
+					"trigger": "PATCH",
+					"syntax": "http"
+				}
+			]
+		}
+    ]
+}

@@ -69,7 +69,8 @@ Content-Type: application/json
 
 ### Multiple requests
 
-Separate multiple request in the same file with `###` on a separate line.
+Separate multiple request in the same file with `###` on a separate line. There is also a Clip for the separator, just type "s" and let the extension auto-complete.
+
 Place the cursor anywhere inside a request when running it.
 
 ```
@@ -86,6 +87,9 @@ Content-Type: application/json
   "name": "louis77"
 }
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Execute HTTP requests
 
@@ -120,9 +124,9 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Add support to provide HTTP body
 - [X] Accept local filenames as body payload
 - [X] Support for XML responses
+- [X] Clips for basic requests
 - [ ] Variables
 - [ ] Auto-completion for Content-Type
-- [ ] Provide snippets for basic requests
 - [ ] Request history in a sidebar
 - [ ] Elaborate on RFC 2616
 - [ ] Allow text on separator line (i.e. ### my request)
@@ -149,6 +153,8 @@ Don't forget to give the project a star! Thanks again!
 ## Donate
 
 If you like this extension and want it to get better over time, please consider showing your appreciation by [donating a small tip](https://www.paypal.com/donate/?hosted_button_id=T5QY5WE7AV2T6). Thank you!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## License

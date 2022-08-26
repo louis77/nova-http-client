@@ -1,14 +1,14 @@
-## Version 1.0.0
+## Version 1.5.0
 
-Initial release, provides support for single line HTTP requests.
+- Add Clips for different request types and separator
 
-## Version 1.1.0
+## Version 1.4.0
 
-Show request latency in output.
-
-## Version 1.2.0
-
-Show response headers in output.
+- Add support to read local files as request body (< filename)
+- Select proper syntax for XML responses
+- Improved syntax highlighting
+- Add CMD-R shortcut to run a request
+- Add funding link 
 
 ## Version 1.3.0
 
@@ -18,10 +18,14 @@ Show response headers in output.
 - Add support for request body
 - Separate multiple requests with a `###` on a separate line
 
-## Version 1.4.0
+## Version 1.2.0
 
-- Add support to read local files as request body (< filename)
-- Select proper syntax for XML responses
-- Improved syntax highlighting
-- Add CMD-R shortcut to run a request
-- Add funding link 
+Show response headers in output.
+
+## Version 1.1.0
+
+Show request latency in output.
+
+## Version 1.0.0
+
+Initial release, provides support for single line HTTP requests.

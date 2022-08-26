@@ -3,8 +3,13 @@
     "name": "HTTP Client",
     "organization": "Louis Brauer <louis@brauer.family>",
     "description": "Make HTTP calls from Nova",
-    "version": "1.4.0",
-    "categories": ["languages", "commands", "tasks"],
+    "version": "1.5.0",
+    "categories": [
+        "languages",
+        "commands",
+        "tasks",
+        "clips"
+    ],
     "main": "main.js",
     "license": "GPL-3.0-or-later",
     "repository": "https://github.com/louis77/nova-http-client",
@@ -25,7 +30,9 @@
                 "shortcut": "cmd-r",
                 "when": "editorHasFocus",
                 "filters": {
-                    "syntaxes": ["http"]
+                    "syntaxes": [
+                        "http"
+                    ]
                 }
             }
         ]
