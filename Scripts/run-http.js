@@ -29,7 +29,7 @@ const splitSegment = (text => {
 	// 1 = verb
 	// 2 = URL
   
-  	if (!tokens) {
+	  if (!tokens) {
 		console.log("given string was not a proper HTTP request");
 		return; // no match, ignore
 	}
@@ -148,45 +148,26 @@ const timeoutPromise = ((ms, promise) => {
 // returns the extracted text
 const extractRequest = ((editor) => {
 
-	editor.selectLinesContainingCursors();
-
-	let txt;
-	let lastSelectedRange = editor.selectedRange;
-
-	// Expand segment
-	while (true) {
-		if (editor.selectedText.trim().startsWith('###')) {
-			// unselect ### separator
-			editor.selectedRange = new Range(editor.selectedRange.start + 4, editor.selectedRange.end);
-			break;
-		}
-
-		console.log("expanding up", editor.selectedRange.start, editor.selectedRange.end);
-		editor.selectUp();
-
-		// No more lines
-		if (editor.selectedRange.isEqual(lastSelectedRange)) break;
-		lastSelectedRange = editor.selectedRange;
+	// Symbols
+	let symbols = editor.symbolsForSelectedRanges();
+	console.log(symbols);
+	while (symbols.length === 0) {
+		editor.moveRight(); 
+		symbols = editor.symbolsForSelectedRanges();
 	}
+	
+	let range;
+	symbols.forEach(s => {
+		range = s.nameRange;
+		console.log("symbol", s.name)
+		console.log("range", range.start, range.end, range.length)
+	});
 
-	while (true) {
-		if (editor.selectedText.trim().endsWith('###')) {
-			// unselect ### separator
-			editor.selectedRange = new Range(editor.selectedRange.start, editor.selectedRange.end - 4);
-			break;
-		}
-
-		console.log("expanding down", editor.selectedRange.start, editor.selectedRange.end);
-		editor.selectDown();
-
-		// No more lines
-		if (editor.selectedRange.isEqual(lastSelectedRange)) break;
-		lastSelectedRange = editor.selectedRange;
-	}
-
-	const selectedStr = editor.selectedText;
-	txt = selectedStr.trim();
-	return txt;
+	let selectedStr = editor.getTextInRange(range).trim();
+	if (selectedStr.endsWith('###')) selectedStr = selectedStr.slice(0, -3).trim();
+	console.log(selectedStr);
+	
+	return selectedStr;
 });
 
 

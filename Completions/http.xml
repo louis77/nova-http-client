@@ -1,0 +1,113 @@
+<completions>
+	<provider name="http.mimetypes">
+		<syntax>http</syntax>
+		<selector>http.request.header:has-child(http.string.key:capture(headerkey)) http.value</selector>
+		<expression>(\b|-)[a-zA-Z0-9-]*</expression>
+		<set>http.${headerkey}</set> 
+	</provider>
+	
+	<provider name="http.headers">
+		<syntax>http</syntax>
+		<selector>http.request.header http.string.key</selector>
+		<expression>\b(.*)</expression>
+		<set>http.headers</set>
+	</provider>
+	
+	
+	<set name="http.Content-Type">
+		<completion string="application/json" />
+		<completion string="application/ld+json" />
+		<completion string="application/octet-stream" />
+		<completion string="application/rtf" />
+		<completion string="application/x-sh" />
+		<completion string="application/xhtml+xml" />
+		<completion string="application/xml" />
+		<completion string="text/calendar" />
+		<completion string="text/css" />
+		<completion string="text/csv" />
+		<completion string="text/html" />
+		<completion string="text/javascript" />
+		<completion string="text/plain" />
+		<completion string="text/xml" />
+	</set>
+	
+	<set name="http.Accept">
+		<completion string="application/json" />
+		<completion string="application/ld+json" />
+		<completion string="application/octet-stream" />
+		<completion string="application/rtf" />
+		<completion string="application/x-sh" />
+		<completion string="application/xhtml+xml" />
+		<completion string="application/xml" />
+		<completion string="text/calendar" />
+		<completion string="text/css" />
+		<completion string="text/csv" />
+		<completion string="text/html" />
+		<completion string="text/javascript" />
+		<completion string="text/plain" />
+		<completion string="text/xml" />
+	</set>
+	
+	<set name="http.headers" symbol="method">
+		<behavior >
+	  		<append>: $[]</append>
+		</behavior>
+		<completion string="A-IM" />
+		<completion string="Accept" />
+		<completion string="Accept-Charset" />
+		<completion string="Accept-Datetime" />
+		<completion string="Accept-Encoding" />
+		<completion string="Accept-Language" />
+		<completion string="Access-Control-Request-Method" />
+		<completion string="Access-Control-Request-Headers" />
+		<completion string="Authorization" />
+		<completion string="Cache-Control" />
+		<completion string="Connection" />
+		<completion string="Content-Encoding" />
+		<completion string="Content-Length" />
+		<completion string="Content-MD5" />
+		<completion string="Content-Type" />
+		<completion string="Cookie" />
+		<completion string="Date" />
+		<completion string="Expect" />
+		<completion string="Forwarded" />
+		<completion string="From" />
+		<completion string="Host" />
+		<completion string="HTTP2-Settings" />
+		<completion string="If-Match" />
+		<completion string="If-Modified-Since" />
+		<completion string="If-None-Match" />
+		<completion string="If-Range" />
+		<completion string="If-Unmodified-Since" />
+		<completion string="Max-Forwards" />
+		<completion string="Origin" />
+		<completion string="Pragma" />
+		<completion string="Prefer" />
+		<completion string="Proxy-Authorization" />
+		<completion string="Range" />
+		<completion string="Referer" />
+		<completion string="TE" />
+		<completion string="Trailer" />
+		<completion string="Transfer-Encoding" />
+		<completion string="User-Agent" />
+		<completion string="Upgrade" />
+		<completion string="Via" />
+		<completion string="Warning" />
+		<completion string="Upgrade-Insecure-Requests" />
+		<completion string="X-Requested-With" />
+		<completion string="DNT" />
+		<completion string="X-Forwarded-For" />
+		<completion string="X-Forwarded-Host" />		
+		<completion string="X-Forwarded-Proto" />
+		<completion string="Front-End-Https" />
+		<completion string="X-Http-Method-Override" />
+		<completion string="X-ATT-DeviceId" />
+		<completion string="X-Wap-Profile" />
+		<completion string="Proxy-Connection" />		
+		<completion string="X-UIDH" />
+		<completion string="X-Csrf-Token" />
+		<completion string="X-Request-ID" />
+		<completion string="X-Correlation-ID" />
+		<completion string="Save-Data" />		
+	</set>
+</completions>

@@ -137,9 +137,10 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Support for XML responses
 - [X] Clips for basic requests
 - [X] Setting to define a timeout
+- [X] Auto-completion for common request headers and MIME types
 - [ ] Option to include request (w/o body) in response output
+- [ ] Look for a global "requests.http" to populate Task list
 - [ ] Variables
-- [ ] Auto-completion for Content-Type
 - [ ] Request history in a sidebar
 - [ ] Elaborate on RFC 2616
 - [ ] Allow text on separator line (i.e. ### my request)

@@ -4,6 +4,8 @@
 - Add Settings for
 	- Follow Redirects
 	- Request timeout in milliseconds
+- Completions for common HTTP request headers and MIME types
+- Improved syntax support
 
 ## Version 1.4.0
 

@@ -6,6 +6,8 @@
         <preferred-file-extension>http</preferred-file-extension>
     </meta>
     
+    <symbols />
+    
     <detectors>
         <extension priority="1.0">http,rest</extension>
     </detectors>
@@ -17,36 +19,46 @@
     </comments>
     
     <scopes>
-        <scope name="http.request.head">
+        <scope name="http.request.definition.function">
+            <symbol type="type" scope="global">
+                <display-name>
+                    <component selector="http.identifier.function" />
+                    <component selector="http.string" prepend=" " />
+                </display-name>
+                <context behavior="subtree" />
+            </symbol>
             <starts-with>
-                <expression>\b(GET|POST|PUT|PATCH|DELETE|HEAD)\s(.+)</expression>
-                <capture number="1" name="http.identifier.method" />
-                <capture number="2" name="http.string" />
+                <expression></expression>
             </starts-with>
-            
             <ends-with>
-                <expression>^\s*\#{3}.*$</expression>
+                <expression>\h*\#{3}.*$</expression>
                 <capture number="0" name="http.markup.line" />
             </ends-with>
             
-            <subscopes anchored="true" skip-whitespace="false">
-                <scope name="http.request.header" repeat="true" optional="true">
-                    <expression>^(\S+)\s*:\s*(\S+)$</expression>
-                    <capture number="1" name="http.string.key" />
-                    <capture number="2" name="http.value" />
-                </scope>
-                
-                <scope name="http.request.bodysep" repeat="false" optional="true">
-                    <expression>^\s*$</expression>
-                    <capture number="0" name="http.body.value" />
-                </scope>
+            <subscopes anchored="true" >
+                <scope name="http.request.head" repeat="false" optional="false">
+                    <starts-with>
+                        <expression>\b(GET|POST|PUT|PATCH|DELETE|HEAD)\h(.+)</expression>
+                        <capture number="1" name="http.identifier.function" />
+                        <capture number="2" name="http.string" />
+                    </starts-with>
+                    <ends-with>
+                        <expression>^$</expression>
+                    </ends-with>
+                    <subscopes>
+                        <scope name="http.request.header" repeat="true" optional="true">
+                            <expression>^(\S*)(?:\h*:\h*)?(\S*)$</expression>
+                            <capture number="1" name="http.string.key" />
+                            <capture number="2" name="http.value" />
+                        </scope>
+                    </subscopes>
+                </scope>                    
 
                 <scope name="http.request.body" repeat="true" optional="true">
-                    <expression>(.*)</expression>
-                    <capture number="0" name="http.markup.code" />
+                   <expression>(.*)</expression>
+                   <capture number="0" name="http.markup.code" />
                 </scope>
             </subscopes>
         </scope>
-
     </scopes>
 </syntax>
