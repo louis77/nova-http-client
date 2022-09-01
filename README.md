@@ -117,7 +117,7 @@ The cursor must always be anywhere inside an HTTP request.
 
 **HTTP Client** features a sidebar to list your request history:
 
-![](sidebar.png)
+![](https://raw.githubusercontent.com/louis77/nova-http-client/main/sidebar.png)
 
 
 ## Settings
@@ -125,6 +125,7 @@ The cursor must always be anywhere inside an HTTP request.
 This extension provides a few settings to customize its behaviour:
 
 - Follow Redirects (3xx responses) (default: true)
+- Specify a timeout for requests
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
