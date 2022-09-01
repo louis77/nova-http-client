@@ -2,6 +2,6 @@
 	"Clear all": "Löschen",
 	"Clear all requests from history": "Alle Abfragen aus der Historie löschen",
 	"HTTP Request History": "HTTP Abfragehistorie",
-	
+
 	"message_no_payload_allowed": "HEAD und GET-Abfragen dürfen keinen Abfrage-Body haben."
 }

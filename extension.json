@@ -68,14 +68,7 @@
                         {
                             "title": "Clear all",
                             "tooltip": "Clear all requests from history",
-                            "command": "sidebar.clear",
-                        }
-                    ],
-                    "contextCommands": [
-                        {
-                            "title": "Run again",
-                            "command": "sidebar.runagain",
-                            "when": "viewItem != null"
+                            "command": "sidebar.clear"
                         }
                     ]
                 }

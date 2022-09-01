@@ -248,11 +248,11 @@ exports.runHTTP = (editor => {
 			const result = `${resultHeader}\n\n${resultBody}`;
 
 			emitter.emit("finished", {
-				method: verb,
-				url: url,
-				latency: latency,
-				status: status,
-				success: (status && status < 400)
+				"method": verb,
+				"url": url,
+				"latency": latency,
+				"status": status,
+				"success": (status && status < 400)
 			})
 		
 			nova.workspace.openNewTextDocument({
