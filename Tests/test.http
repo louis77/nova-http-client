@@ -15,7 +15,7 @@ Content-Type: application/json
 ###
 
 POST https://postman-echo.com/post
-Content-Length: ()
+Content-Type: application/json
 
 < /Users/louis/payload.json
 
@@ -34,8 +34,6 @@ HEAD https://wikipedia.org/
 Content-Type: application/json
 User-Agent: nova/1.3
 
-bdy  
-
 ###
 
 GET http://worldtimeapi.org/api/timezone/Europe/Zurich
@@ -43,3 +41,6 @@ GET http://worldtimeapi.org/api/timezone/Europe/Zurich
 ###
 
 GET https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&format=xml&iiprop=url&titles=File%3ABruce_Willis_by_Gage_Skidmore.jpg
+
+###
+

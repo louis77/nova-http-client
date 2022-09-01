@@ -28,8 +28,8 @@ const splitSegment = (text => {
 	// 0 = full matched string
 	// 1 = verb
 	// 2 = URL
-  
-	  if (!tokens) {
+
+	if (!tokens) {
 		console.log("given string was not a proper HTTP request");
 		return; // no match, ignore
 	}
@@ -78,7 +78,6 @@ const parseBody = (body => {
 	// it looks like nova.fs is always at the root of the
 	// file system  
 	const filename = body.match(/^<\s*(\S+)$/);
-	console.log("filename was", filename);
 	// if filename is array of 
 	// 0 = full match
 	// 1 = the filepath
@@ -93,6 +92,7 @@ const parseBody = (body => {
 	return body
 })
 
+
 const redirectMode = (() => {
 	const val = nova.config.get('http.followredirect', "boolean");
 	console.log("redirectMode is", val);
@@ -101,12 +101,14 @@ const redirectMode = (() => {
 	return val ? "follow" : "manuel";
 })
 
+
 const timeoutMillis = (() => {
 	const val = nova.config.get('http.timeoutinmilliseconds', "number");
 	console.log("timeout is ", val);
 	if (val === null) return 0;
 	return val;
 })
+
 
 const timeoutPromise = ((ms, promise) => {
 	// Without timeout
@@ -142,31 +144,27 @@ const timeoutPromise = ((ms, promise) => {
 	})
 });
 
+
 // Extracts the current request from the cursor position
 // by expanding text selection respecting
 // request separator (###)
 // returns the extracted text
 const extractRequest = ((editor) => {
-
 	// Symbols
 	let symbols = editor.symbolsForSelectedRanges();
-	console.log(symbols);
 	while (symbols.length === 0) {
-		editor.moveRight(); 
+		editor.moveRight();
 		symbols = editor.symbolsForSelectedRanges();
 	}
-	
+
 	let range;
 	symbols.forEach(s => {
 		range = s.nameRange;
-		console.log("symbol", s.name)
-		console.log("range", range.start, range.end, range.length)
 	});
 
 	let selectedStr = editor.getTextInRange(range).trim();
 	if (selectedStr.endsWith('###')) selectedStr = selectedStr.slice(0, -3).trim();
-	console.log(selectedStr);
-	
+
 	return selectedStr;
 });
 
@@ -191,8 +189,6 @@ exports.runHTTP = (editor => {
 	const txt = extractRequest(editor);
 
 	let { verb, url, headers, body } = splitSegment(txt);
-	console.log("headers", headers);
-	console.log("body", body);
 
 	let resultHeader = "";
 	let resultBody = "";
@@ -232,7 +228,7 @@ exports.runHTTP = (editor => {
 			const latency = endTime - startTime;
 
 			const headers = response.headers;
-			resultHeader = `${response.status} ${response.statusText} (latency: ${latency}ms)\n`;
+			resultHeader = `${response.status} ${response.statusText === 'no error' ? 'OK' : response.statusText} (latency: ${latency}ms)\n`;
 			type = headers.get('Content-Type');
 
 			if (headers) resultHeader += compileHeaders(headers.entries);

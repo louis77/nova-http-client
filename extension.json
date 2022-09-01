@@ -2,8 +2,8 @@
     "identifier": "louis77.http-client",
     "name": "HTTP Client",
     "organization": "Louis Brauer <louis@brauer.family>",
-    "description": "Make HTTP calls from Nova",
-    "version": "1.5.0",
+    "description": "Make HTTP calls from Nova. Support for *.http files. Test your REST APIs.",
+    "version": "1.5.1",
     "categories": [
         "languages",
         "commands",
@@ -14,7 +14,7 @@
     "license": "GPL-3.0-or-later",
     "repository": "https://github.com/louis77/nova-http-client",
     "bugs": "https://github.com/louis77/nova-http-client/issues",
-    "funding": "https://www.paypal.com/donate/?hosted_button_id=T5QY5WE7AV2T6",
+    "funding": "https://liberapay.com/louis77/donate",
     "activationEvents": [
         "onLanguage:http"
     ],
