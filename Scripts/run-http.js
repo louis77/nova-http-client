@@ -1,3 +1,7 @@
+// Supported events:
+// - finished (request) {method, url, latency, success}
+let emitter = new Emitter();
+
 const selectSyntax = (contentType => {
 	if (!contentType) return 'txt';
 	if (contentType.startsWith('application/json')) return 'json';
@@ -168,7 +172,7 @@ const extractRequest = ((editor) => {
 	return selectedStr;
 });
 
-
+exports.emitter = emitter;
 exports.runHTTP = (editor => {
 	console.log('runHTTP', editor)
 
@@ -197,7 +201,7 @@ exports.runHTTP = (editor => {
 	const startTime = new Date().getTime();
 
 	if ((verb === 'GET' || verb === 'HEAD') && body.length) {
-		nova.workspace.showErrorMessage("HEAD and GET requests may not have a request body.");
+		nova.workspace.showErrorMessage(nova.localize("message_no_payload_allowed", "HEAD and GET requests may not have a request body."));
 		return;
 	}
 
@@ -214,6 +218,8 @@ exports.runHTTP = (editor => {
 
 	// Timeout
 	const timeout = timeoutMillis();
+	let latency = 0;
+	let status;
 
 	timeoutPromise(timeout,
 		fetch(url, {
@@ -225,10 +231,11 @@ exports.runHTTP = (editor => {
 		.then((response) => {
 			console.log("request done")
 			const endTime = new Date().getTime();
-			const latency = endTime - startTime;
+			latency = endTime - startTime;
+			status = response.status;
 
 			const headers = response.headers;
-			resultHeader = `${response.status} ${response.statusText === 'no error' ? 'OK' : response.statusText} (latency: ${latency}ms)\n`;
+			resultHeader = `${status} ${response.statusText === 'no error' ? 'OK' : response.statusText} (latency: ${latency}ms)\n`;
 			type = headers.get('Content-Type');
 
 			if (headers) resultHeader += compileHeaders(headers.entries);
@@ -240,7 +247,14 @@ exports.runHTTP = (editor => {
 			resultBody = text;
 			const result = `${resultHeader}\n\n${resultBody}`;
 
-
+			emitter.emit("finished", {
+				method: verb,
+				url: url,
+				latency: latency,
+				status: status,
+				success: (status && status < 400)
+			})
+		
 			nova.workspace.openNewTextDocument({
 				content: result,
 				syntax: selectSyntax(type),

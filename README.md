@@ -9,7 +9,13 @@
 
 # HTTP Client extension for Nova
 
-**HTTP Client** is an extension for the [Nova editor](https://nova.app) and provides a **Run HTTP** editor command to make HTTP calls from a *.http file.
+**HTTP Client** is an extension for the [Nova editor](https://nova.app) to make HTTP calls from a *.http file.
+
+Includes:
+- HTTP Syntax highlighting
+- Run HTTP command
+- Run HTTP task
+- Sidebar with request history
 
 ![](https://raw.githubusercontent.com/louis77/nova-http-client/main/screenshot1.gif)
 
@@ -107,6 +113,13 @@ The cursor must always be anywhere inside an HTTP request.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## History Sidebar
+
+**HTTP Client** features a sidebar to list your request history:
+
+![](sidebar.png)
+
+
 ## Settings
 
 This extension provides a few settings to customize its behaviour:
@@ -138,11 +151,10 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Clips for basic requests
 - [X] Setting to define a timeout
 - [X] Auto-completion for common request headers and MIME types
+- [X] Request history in a sidebar
 - [ ] Option to include request (w/o body) in response output
 - [ ] Look for a global "requests.http" to populate Task list
-- [ ] Variables
-- [ ] Request history in a sidebar
-- [ ] Elaborate on RFC 2616
+- [ ] Variables
 - [ ] Allow text on separator line (i.e. ### my request)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

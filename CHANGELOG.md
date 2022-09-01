@@ -1,3 +1,8 @@
+## Version 1.6.0
+
+- Add History Sidebar
+- Add German localisation
+
 ## Version 1.5.0
 
 - Add Clips for different request types and separator

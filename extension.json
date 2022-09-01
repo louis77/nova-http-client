@@ -3,12 +3,13 @@
     "name": "HTTP Client",
     "organization": "Louis Brauer <louis@brauer.family>",
     "description": "Make HTTP calls from Nova. Support for *.http files. Test your REST APIs.",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "categories": [
         "languages",
         "commands",
         "tasks",
-        "clips"
+        "clips",
+        "sidebars"
     ],
     "main": "main.js",
     "license": "GPL-3.0-or-later",
@@ -51,5 +52,34 @@
                 }
             }
         ]
-    }
+    },
+    "sidebars": [
+        {
+            "id": "requestHistorySidebar",
+            "name": "HTTP",
+            "smallImage": "SidebarSmall",
+            "largeImage": "SidebarLarge",
+            "sections": [
+                {
+                    "id": "request-history-sec1",
+                    "name": "HTTP Request History",
+                    "allowMultiple": false,
+                    "headerCommands": [
+                        {
+                            "title": "Clear all",
+                            "tooltip": "Clear all requests from history",
+                            "command": "sidebar.clear",
+                        }
+                    ],
+                    "contextCommands": [
+                        {
+                            "title": "Run again",
+                            "command": "sidebar.runagain",
+                            "when": "viewItem != null"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

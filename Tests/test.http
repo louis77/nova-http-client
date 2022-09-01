@@ -23,14 +23,13 @@ Content-Type: application/json
 
 GET https://wikipedia.org
 Content-Type: application/json
-Connection: 
 
 teste 
 yxc
 
 ###
 
-HEAD https://wikipedia.org/
+HEAD https://wikipedia.org/x
 Content-Type: application/json
 User-Agent: nova/1.3
 
