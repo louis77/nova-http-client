@@ -109,7 +109,7 @@ Content-Type: application/json
 
 ## Variables
 
-**HTTP Client** support the definition and usage of global and request-local variables. 
+**HTTP Client** support the definition and usage of global and request-scoped variables. 
 
 Global variables are defined at the beginning of the file or inside a block (separated by `###`) which does not contain a request.
 
@@ -195,28 +195,12 @@ This extension provides a few settings to customize its behaviour:
 
 Let me know if you find the extension useful and what features you want to see.
 
-- [X] Basic HTTP requests 
-- [X] Show latency in output
-- [X] Show HTTP response headers in output
-- [X] Add support to provide HTTP headers
-- [X] Add support to provide HTTP body
-- [X] Accept local filenames as body payload
-- [X] Support for XML responses
-- [X] Clips for basic requests
-- [X] Setting to define a timeout
-- [X] Auto-completion for common request headers and MIME types
-- [X] Request history in a sidebar
-- [X] Variables
-- [X] Allow text on separator line (i.e. ### my request)
 - [ ] Option to include request (w/o body) in response output
 - [ ] Look for a global "requests.http" to populate Task list
 - [ ] Open response document immediately and populate incrementally
 - [ ] Environment variables
 - [ ] Variables defined via settings
 - [ ] Run multiple requests at once
-
-There seems to be a bug in Nova that prevents that from happening.
-I'm waiting for some input from the Nova team. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
