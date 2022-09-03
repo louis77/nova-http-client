@@ -3,5 +3,7 @@
 	"Clear all requests from history": "Alle Abfragen aus der Historie löschen",
 	"HTTP Request History": "HTTP Abfragehistorie",
 
-	"message_no_payload_allowed": "HEAD und GET-Abfragen dürfen keinen Abfrage-Body haben."
+	"message_no_payload_allowed": "HEAD und GET-Abfragen dürfen keinen Abfrage-Body haben.",
+	"undefined": "nicht definiert",
+	"request_not_substituted": "Die Abfrage wurde gesendet, aber ohne die Variable zu ersetzen."
 }

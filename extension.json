@@ -3,7 +3,7 @@
     "name": "HTTP Client",
     "organization": "Louis Brauer <louis@brauer.family>",
     "description": "Make HTTP calls from Nova. Support for *.http files. Test your REST APIs.",
-    "version": "1.6.1",
+    "version": "1.7.0",
     "categories": [
         "languages",
         "commands",

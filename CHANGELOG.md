@@ -1,3 +1,7 @@
+## Version 1.7.0
+
+- Support for global and request-scoped variables
+
 ## Version 1.6.0
 
 - Add History Sidebar

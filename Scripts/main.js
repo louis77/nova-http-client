@@ -8,6 +8,11 @@ const { sidebarData, sidebarTree, clearCmd, addCmd } = require('./sidebar');
 
 nova.commands.register('runHTTP', runHTTP);
 
+if (nova.inDevMode()) {
+  const { debugHTTP } = require('./debug');
+  nova.commands.register("debugHTTP", debugHTTP)
+}
+
 // Tasks
 class RunHTTPTask {
   provideTasks() {

@@ -18,7 +18,13 @@
         </single>
     </comments>
     
-    <scopes>
+    <scopes>        
+        <scope name="http.variable.definition">
+            <symbol type="variable" />
+            <expression>^@([A-Za-z0-9_]+)\s*=\s*(.*)$</expression>
+            <capture number="1" name="http.variable.identifier" />
+            <capture number="2" name="http.variable.value" />
+        </scope>
         <scope name="http.request.definition.function">
             <symbol type="type" scope="global">
                 <display-name>

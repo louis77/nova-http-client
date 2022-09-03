@@ -13,17 +13,21 @@
 
 Includes:
 - HTTP Syntax highlighting
+- Auto-completion for many HTTP Headers and their standard values
+- Global and request-scoped variables
 - Run HTTP command
 - Run HTTP task
 - Sidebar with request history
 
-![](https://raw.githubusercontent.com/louis77/nova-http-client/main/screenshot1.gif)
+![](https://raw.githubusercontent.com/louis77/nova-http-client/main/Public/screenshot-1.7.0.png)
+
+**HTTP Client** tries to be compatible to the very popular [**REST Client**](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension of VS Code, however it supports only a small subset of its features, yet.
 
 ## Getting Started
 
 1. Install the extension from the [Nova extensions library](https://extensions.panic.com/extensions/louis77/louis77.http-client/).
 
-1. Create a file with "http" extension
+1. Create a file with "http" extension, or select the *HTTP Language* in the current editor
 
 2. Write a HTTP verb and URL in a line:
 
@@ -38,17 +42,23 @@ GET https://wikipedia.org
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Requests
+## Usage
+
+In the editor, type an HTTP request by starting with a HTTP verb (all UPPERCASE):
+
+```
+GET https://postman-echo.com/get
+```
 
 ### Add request headers
-
-Place HTTP header directly below Verb/URL:
 
 ```
 GET https://postman-echo.com/get
 x-api-key: test
 x-version: 1.0
 ```
+
+Some headers will be automatically added to the request, but you can overwrite them.
 
 ### Add request body
 
@@ -63,7 +73,8 @@ Content-Type: application/json
 }
 ```
 
-You can also specify file path to use as a body, which starts with < :
+You can also specify a file path to use as a body, which starts with `<`. 
+It will try to read the file and use it as the body.
 
 ```
 POST https://postman-echo.com/post
@@ -74,9 +85,10 @@ Content-Type: application/json
 ```
 
 
-### Multiple requests
+### Multiple request blocks
 
-Separate multiple request in the same file with `###` on a separate line. There is also a Clip for the separator, just type "s" and let the extension auto-complete.
+Separate multiple request in the same file with `###` on a separate line.
+You can also add some text to name your requests. If you just type `s` a Clip will popup.
 
 Place the cursor anywhere inside a request when running it.
 
@@ -85,7 +97,7 @@ GET https://postman-echo.com/get
 x-api-key: test
 x-version: 1.0
 
-###
+### My request
 
 POST https://postman-echo.com/post
 Content-Type: application/json
@@ -94,6 +106,47 @@ Content-Type: application/json
   "name": "louis77"
 }
 ```
+
+## Variables
+
+**HTTP Client** support the definition and usage of global and request-local variables. 
+
+Global variables are defined at the beginning of the file or inside a block (separated by `###`) which does not contain a request.
+
+Request-scoped variables are defined at the beginning of a request block.
+
+```
+@echoUrl = https://httpbin.org     <--- global variable
+
+### GET anything
+
+@method = get     <--- request-scoped variable
+
+GET {{echoUrl}/@method
+
+### another global block
+
+@key = test    <--- global variable, available from this point on
+
+### 
+
+GET {{echoUrl}}/get
+x-api-key: {{key}} 
+
+```
+
+In this example, `echoUrl`is a global variable which is available to all requests after it is defined. `method`is a request-scoped variable which is only available in the request block it was defined.
+
+Variable substitution with `{{variable}}` works for subsequent variable values, request URLs, and header values:
+
+```
+@baseURL = http://localhost:8080
+@basePath = {{baseURL}}/api
+@type = application/json
+
+GET {{basePath}}
+Content-Type: {{type}}
+``` 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,7 +170,7 @@ The cursor must always be anywhere inside an HTTP request.
 
 **HTTP Client** features a sidebar to list your request history:
 
-![](https://raw.githubusercontent.com/louis77/nova-http-client/main/sidebar.png)
+![](https://raw.githubusercontent.com/louis77/nova-http-client/main/Public/sidebar.png)
 
 
 ## Settings
@@ -153,10 +206,17 @@ Let me know if you find the extension useful and what features you want to see.
 - [X] Setting to define a timeout
 - [X] Auto-completion for common request headers and MIME types
 - [X] Request history in a sidebar
+- [X] Variables
+- [X] Allow text on separator line (i.e. ### my request)
 - [ ] Option to include request (w/o body) in response output
 - [ ] Look for a global "requests.http" to populate Task list
-- [ ] Variables
-- [ ] Allow text on separator line (i.e. ### my request)
+- [ ] Open response document immediately and populate incrementally
+- [ ] Environment variables
+- [ ] Variables defined via settings
+- [ ] Run multiple requests at once
+
+There seems to be a bug in Nova that prevents that from happening.
+I'm waiting for some input from the Nova team. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -179,7 +239,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Donate
 
-If you like this extension and want it to get better over time, please consider showing your appreciation by [donating a small tip](https://www.paypal.com/donate/?hosted_button_id=T5QY5WE7AV2T6). Thank you!
+If you like this extension and want it to get better over time, please consider showing your appreciation by [donating a small tip](https://liberapay.com/louis77/donate). Thank you!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
