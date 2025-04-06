@@ -1,6 +1,6 @@
 ## Version 1.7.0
 
-- Support for global and request-scoped variables
+- Support for file and request-scoped variables
 
 ## Version 1.6.0
 

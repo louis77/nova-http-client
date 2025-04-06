@@ -66,3 +66,11 @@ x-num: {{ num }}
 
 GET {{echoUrl}}/get
 Content-Type: application/json
+
+###
+
+GET http://root:whiskey45!!!@arango.cap02.openbooking.ch/_db/logs/_api/document/requests/1901
+
+###
+
+GET http://localhost:1701/providers

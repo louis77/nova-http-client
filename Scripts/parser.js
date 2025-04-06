@@ -32,6 +32,8 @@ function parseBody(body) {
 
 
 // splits a request block into verb, url, headers, body
+// file references in body are NOT resolved at this stage
+// to prevent reading all files referenced in a doc
 function extractRequest(block) {
 	let verb = null;
 	let url = null;
@@ -129,7 +131,7 @@ function blockify(editor) {
 }
 
 /**
- * Parses an array of raw blocks and extracts global and request local variables
+ * Parses an array of raw blocks and extracts file and request local variables
  * Assigns blocks the global(bool) and var[{key, value}] attributes
  * @param {array} blocks - Array of blocks from the blockify()
  * @returns {array} augmented blocks array with variables property

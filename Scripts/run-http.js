@@ -26,7 +26,7 @@ const redirectMode = (() => {
 	console.log("redirectMode is", val);
 	if (val === null) return "follow";
 
-	return val ? "follow" : "manuel";
+	return val ? "follow" : "manual";
 })
 
 
@@ -135,6 +135,8 @@ exports.runHTTP = (editor => {
 
 			if (headers) resultHeader += compileHeaders(headers.entries);
 
+			// TODO: response.text() returns very late sometimes (localhost/kemal)
+			// TODO: request.body still gets cut off last char when last in file
 			return response.text()
 		})
 		.then((text) => {

@@ -14,7 +14,7 @@
 Includes:
 - HTTP Syntax highlighting
 - Auto-completion for many HTTP Headers and their standard values
-- Global and request-scoped variables
+- File and request-scoped variables
 - Run HTTP command
 - Run HTTP task
 - Sidebar with request history
@@ -109,14 +109,14 @@ Content-Type: application/json
 
 ## Variables
 
-**HTTP Client** support the definition and usage of global and request-scoped variables. 
+**HTTP Client** support the definition and usage of file and request-scoped variables. 
 
-Global variables are defined at the beginning of the file or inside a block (separated by `###`) which does not contain a request.
+File variables are defined at the beginning of the file or inside a block (separated by `###`) which does not contain a request.
 
 Request-scoped variables are defined at the beginning of a request block.
 
 ```
-@echoUrl = https://httpbin.org     <--- global variable
+@echoUrl = https://httpbin.org     <--- file variable
 
 ### GET anything
 
@@ -126,7 +126,7 @@ GET {{echoUrl}/@method
 
 ### another global block
 
-@key = test    <--- global variable, available from this point on
+@key = test    <--- file variable, available from this point on
 
 ### 
 
@@ -135,7 +135,7 @@ x-api-key: {{key}}
 
 ```
 
-In this example, `echoUrl`is a global variable which is available to all requests after it is defined. `method`is a request-scoped variable which is only available in the request block it was defined.
+In this example, `echoUrl` is a file variable which is available to all requests after it is defined. `method`is a request-scoped variable which is only available in the request block it was defined.
 
 Variable substitution with `{{variable}}` works for subsequent variable values, request URLs, and header values:
 
